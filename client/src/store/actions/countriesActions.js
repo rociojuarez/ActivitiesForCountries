@@ -14,14 +14,7 @@ export function getActivities(season) {
         return dispatch({type: types.get_activities, payload: json.data});       
         };   
 }
-
-export function getCountriesBySeason(){
-    return async function(dispatch){
-        dispatch({
-            type: types.get_activitiesBySeason, 
-        })
-    }
-}  
+ 
 
 export function getCountries(page, order, orderBy, region) {
     return async function(dispatch) {
@@ -70,7 +63,7 @@ export function clearActivityForm() {
 } 
 
 export function postActivity(name, difficulty, duration, seasons, countriesId){
-    return async function (dispatch) {
+    return async function () {
         const response = await axios.post('http://localhost:3001/activity',{
             name,
             difficulty,
@@ -79,16 +72,10 @@ export function postActivity(name, difficulty, duration, seasons, countriesId){
             countriesId
         });
         //console.log(response);
-        return dispatch({type: types.post_Activities, payload: response});
+        return ( response);
     }
 } 
 
-
-/* export function orderByActivities(name) {
-    return function (dispatch) {
-        return dispatch({type: types.order_by_Activities, payload: name});
-    }
-} */
 
 
 

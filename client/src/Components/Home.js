@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {NavLink} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
-import { getCountries, getActivities, getCountriesBySeason } from '../store/actions/countriesActions';
+import { getCountries, getActivities } from '../store/actions/countriesActions';
 import {CountriesCards} from './CountriesCards'
 import { NavBar } from './NavBar';
 import { SearchBar } from './SearchBar';
@@ -13,15 +13,16 @@ export const Home = () => {
 	const [pages, setPages] = useState(0);
     
     const allCountries = useSelector((state) => state.countries);
+    const countriesActivities = useSelector((state) => state.countriesActivities);
     const activities = useSelector((state) => state.activities);
     
+
     useEffect(() => {
         dispatch(getCountries(pages, order, orderBy, filtro));
 	}, [dispatch]);
 
     useEffect(() => {
         dispatch(getActivities(season));
-        dispatch(getCountriesBySeason())
 	}, [dispatch]);
     
     
@@ -31,11 +32,12 @@ export const Home = () => {
     
     const [filtro, setFiltro] = useState('');
 
-    const [season, setSeason] = useState('');
+    const [season, setSeason] = useState(null);
 
     //Dispara la accion y llena de paises mi Base de Datos
     useEffect(() => {
         dispatch(getCountries(pages, order, orderBy, filtro));
+        dispatch(getActivities(season));
     }, [dispatch, pages,order, orderBy, filtro ]);
 	
     //Volver a cargar los paises
@@ -82,12 +84,13 @@ export const Home = () => {
    const changeSeason = (e) => {
     e.preventDefault();
     setSeason(e.target.value);
-    dispatch(getActivities(season));
-    dispatch(getCountriesBySeason());
+    dispatch(getActivities(e.target.value))
 }
 
-
-
+const handlerClickSeason = (e) => {
+    e.preventDefault();
+    dispatch(getActivities(e.target.value));
+} 
 
      
     return (
@@ -116,13 +119,14 @@ export const Home = () => {
                     </div>
                     <div>
                     <h4>Activities=</h4>
-                    <select className="btn" onChange={(e) => changeSeason(e)} >
-                        <option value="">All</option>
-                        <option value="Autumn">Autumn</option>
-                        <option value="Winter">Winter</option>
-                        <option value="Spring">Spring</option>
-                        <option value="Summer">Summer</option>
+                    <select className="btn" name="activity" value="null" onChange={(e) => changeSeason(e)} >
+                        <option value="All">All</option>
+                        <option value="autumn">Autumn</option>
+                        <option value="winter">Winter</option>
+                        <option value="spring">Spring</option>
+                        <option value="summer">Summer</option>
                     </select>
+                    <button onSubmit={handlerClickSeason}>Buscar!</button>
                     </div>
                     <div className="orderBy">
                         <h4>Order By:</h4>
@@ -137,7 +141,17 @@ export const Home = () => {
                 </div>
                 <div className="home__countriesCards">
                 {
-                            allCountries?.map((country) => {
+                       countriesActivities == '' ?
+
+                        allCountries?.map((country) => {
+                            return (
+                                <div>
+                                    <NavLink to={'/countries/'+country.id}>
+                                        <CountriesCards name={country.name} flag={country.flag} region={country.region} key={country.id} />
+                                    </NavLink>
+                                </div>
+                            );
+                        })  : countriesActivities.map((country) => {
                             return (
                                 <div>
                                     <NavLink to={'/countries/'+country.id}>
@@ -146,7 +160,7 @@ export const Home = () => {
                                 </div>
                             );
                         })
-                    }
+                }
 
                     <div className="home__countriesPage">
                     <button

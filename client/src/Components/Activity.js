@@ -5,26 +5,27 @@ import { clearActivityForm, getNameCountriesForm, postActivity } from '../store/
 import { NavBar } from './NavBar';
 
 export const Activity = (props) => {
+
     const dispatch = useDispatch();
     const history = useHistory();
 
     const country = useSelector(state => state.countriesForm);
 
     const [name, setName] = useState("");
-    const [difficulty, setDifficulty] = useState("");
-    const [duration, setDuration] = useState("");
+    const [difficulty, setDifficulty] = useState();
+    const [duration, setDuration] = useState();
     const [seasons, setSeasons] = useState("");
     const [countriId, setCountriId] = useState([]);
     const [countryName, setCountryName] = useState('');
     const [countriesObj, setCountriesObj] = useState([]);
 
 
-    useEffect(() => {
+   useEffect(() => {
         setCountriesObj([...countriesObj, ...country]);
         setCountriId([...new Set(countriesObj.map(c=>c.id))]);
     }, [dispatch, country]);
 
-    useEffect(() => {
+   useEffect(() => {
         setCountriId([...new Set(countriesObj.map((c)=>c.id))]);
     }, [dispatch, countriesObj]);
 
@@ -43,7 +44,7 @@ export const Activity = (props) => {
      const handleDifficulty = (e) => {
         e.preventDefault();
         setDifficulty(e.target.value)
-    }
+    } 
     
     const handleDuration = (e) => {
         e.preventDefault();
@@ -95,7 +96,7 @@ export const Activity = (props) => {
                         <option value="3" name="difficulty">3</option>
                         <option value="4" name="difficulty">4</option>
                         <option value="4" name="difficulty">5</option>
-                    </select>
+                    </select> 
                     </div>
                     <div className="activity_duration">
                     <h4>Duration (In Minutes)=</h4>
@@ -108,11 +109,11 @@ export const Activity = (props) => {
                     </div>
                     <div className="activity_season">
                     <h4>Season=</h4>
-                    <select className="btn" name="season" onChange={(e) => handleSeasons(e)}>
-                        <option value="Autumn" name="season">Autumn</option>
-                        <option value="Winter" name="season">Winter</option>
-                        <option value="Spring" name="season">Spring</option>
-                        <option value="Summer" name="season">Summer</option>
+                    <select className="btn" name="seasons" onChange={(e) => handleSeasons(e)}>
+                        <option value="autumn">Autumn</option>
+                        <option value="winter">Winter</option>
+                        <option value="spring">Spring</option>
+                        <option value="summer">Summer</option>
                     </select>
                     </div>
                       
@@ -125,7 +126,7 @@ export const Activity = (props) => {
                     />
                 <button onClick={(e) => getCountryName(e)}>
                 Search Country
-                </button>
+                </button> 
                 </div>
                     <div className="countries_container">
                         <div className="activity_countries__Card">
@@ -141,7 +142,7 @@ export const Activity = (props) => {
                             ))
                         } 
                     </div>
-                    </div>
+                    </div> 
                     <div className="activity_submit">
                     <button type="submit" className="btn btn-activity" onClick={(e) => {handleSubmit(e)}}>Create!</button>
                     </div>

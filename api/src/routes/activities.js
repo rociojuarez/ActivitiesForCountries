@@ -30,6 +30,15 @@ router.post('/', async (req, res) => {
     }
 });
 
+/* router.get("/", async (req, res, next) => {
+    try{
+        const db = await Activity.findAll()
+        return res.send(db).status(200)
+    } catch (e) {
+        return res.json(e.message).status(409)
+    }
+}) */
+
 router.get("/", async (req, res, next) => {
     if(req.query.filter){
         try {
@@ -40,7 +49,8 @@ router.get("/", async (req, res, next) => {
                 include: {model: Country}
 
             });
-            return res.json(paises)
+            let resultado = paises.map(p => p.countries);
+            return res.json(resultado[0])
         } catch (error) {
             console.log(error)
         }

@@ -4,7 +4,8 @@ const { DataTypes } = require('sequelize');
 module.exports = (sequelize) => {
   // defino el modelo
   return sequelize.define('activity', {
-    id: {
+   
+     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,

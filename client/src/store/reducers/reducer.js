@@ -39,25 +39,13 @@ export const rootReducer= (state = initialState, action) => {
         case types.post_Activities:
             return {
                 ...state,
-                activities: [...state.activities, action.payload]
+                activities:  action.payload
             }
-        case types.get_activities:
+       case types.get_activities:
             return {
                 ...state,
-                activities: action.payload
-            }
-
-        case types.get_activitiesBySeason:
-                return {
-                    ...state,
-                    countriesActivities: state.activities.map(a => a.countries)
-                }
-        /* case types.order_by_Activities: 
-            return {
-              ...state,
-              countries: state.activities.filter(c => c.countries === )
-              })
-            } */ 
+                countriesActivities: action.payload
+            } 
         default:
         return state;
     }
