@@ -91,6 +91,7 @@ export const Activity = (props) => {
                     <div className="activity_diff">
                     <h4>Difficulty (1-Easy / 5-Hard)=</h4>
                     <select className="btn" name="difficulty" onChange={(e) => handleDifficulty(e)}>
+                    <option value="0" name="difficulty">0</option>
                         <option value="1" name="difficulty">1</option>
                         <option value="2" name="difficulty">2</option>
                         <option value="3" name="difficulty">3</option>

@@ -34,10 +34,10 @@ export const Details = (props) => {
             { countryDetail.activities && countryDetail.activities.length > 0 ?
             (countryDetail.activities.map((a) => {
                 return <div>
-                        <h2>{a.name}</h2>
-                        <h4>{a.difficulty}</h4>
-                        <h4>{a.duration}</h4>
-                        <h4>{a.seasons}</h4>
+                        <h3>Name: {a.name}</h3>
+                        <h3>Difficulty:{a.difficulty}</h3>
+                        <h3>Duration:{a.duration}</h3>
+                        <h3>Season:{a.seasons}</h3>
                     </div>    
             })) : (
                 <div>
