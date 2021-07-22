@@ -1,0 +1,43 @@
+.btn {
+    cursor: pointer;
+    font-size: 12px;
+    padding: 7px 10px 7px 10px;
+
+    &:focus{
+        outline:none;
+    }
+}
+
+.btn-home{
+    border-radius: 2px;
+    background-color:$light-green;
+
+    &:hover{
+        background-color: darken($color: $light-green, $amount:15);
+    }
+}
+
+.btn-activity{
+    border-radius: 10px;
+    background-color:$light-green;
+    width:180px;
+    text-align: center;
+    font-size:30px;
+
+    &:hover{
+        background-color: darken($color: $light-green, $amount:15);
+    }
+}
+
+.btn-blue{
+    background-color: $primary;
+    border-radius: 2px;
+    color: white;
+
+    &:disabled{
+        background-color: lighten($color: $primary, $amount:15);
+    }
+    &:hover{
+        background-color: darken($color: $primary, $amount:15);
+    }
+}

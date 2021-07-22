@@ -1,0 +1,17 @@
+.navbar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    background-color: $dark-grey;
+    color: white;
+    width: 100%;
+    font-size: 22px;
+    text-decoration:none;
+    text-align: center;
+}
+
+.navbar_text{
+    font-size: 22px;
+    color:white;
+}

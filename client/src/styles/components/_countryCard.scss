@@ -1,0 +1,45 @@
+.countries__Card{
+    background-color: $dark-grey;
+    opacity: .9;
+	border-radius: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 15px 10px;
+	width: 170px;
+	height: 170px;
+    text-decoration:none;
+
+    &:hover {
+        width: 190px;
+		background-color:lighten($color: $dark-grey, $amount:15%);
+		transform: scale3d(-1);
+		transition: all 1s;
+	}
+}
+
+.card_img{
+    align-self: center;
+    margin: 10px 20px;
+	width: 130px;
+	height: 100px;
+	border: solid $light-green;
+	border-radius: 15px;
+}
+
+.card_text{
+    width: 170px;
+    align-self: center;
+    color:  white;
+    opacity: .9;
+    font-size: 20px;
+    text-decoration:none;
+    &:visited{
+        text-decoration:none;
+    }
+
+    &:hover {
+        width: 170px;
+        color:  white;
+    }
+}

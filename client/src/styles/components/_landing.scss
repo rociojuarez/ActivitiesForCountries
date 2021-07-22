@@ -1,0 +1,40 @@
+.landing__main{
+    background:url('../img/16.jpg');
+    background-size: 80%;
+    background-position: center center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height:100vh;
+    width:100vw;
+}
+
+.landing__login {
+    background-color:$light-blue;
+    opacity: .9;
+    box-shadow: 0px, 3px $dark-grey;
+    border-radius:2px;
+    padding: 20px;
+    width: 300px;
+    
+} 
+
+.landing__btn{
+    display: flex;
+    flex-direction:row;
+    justify-content:space-between;
+}
+
+.landing__title{
+    text-align: center;
+    opacity: none;
+    color: $dark-grey;
+    margin-bottom: 20px;
+}
+
+.landing__author{
+    margin-top: 5px;
+    opacity: none;
+    color:white;
+}

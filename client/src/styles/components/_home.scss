@@ -1,0 +1,68 @@
+.home__main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.home__countries{
+    margin-top:2px;
+    background:url('../img/green-blue-earth-on-blackboard-globe.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    display:flex;
+    flex-direction: row;
+    width:100%;
+}
+
+.home__sideBar{
+    
+    display: flex;
+    flex-direction:column;
+    justify-content:space-around;
+    align-items:center;
+    position:relative ;
+    background-color:$dark-grey;
+    opacity: .8;
+    color: white;
+    font-size: 20px;
+    box-shadow: 0px, 3px $light-blue;
+    padding-left: 10px;
+    padding-right: 10px;
+    width:15%;
+}
+
+.searchBar__main{
+    padding:10px;
+    font-size: 20px;
+    display: flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+
+.searchBar__input{
+    width: 130px;
+}
+
+.orderBy{
+    display: flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+
+
+.home__countriesCards{
+    display: flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items:center;
+    align-content: stretch;
+    width:85%;
+    height:70%;
+}
+
+
+
+

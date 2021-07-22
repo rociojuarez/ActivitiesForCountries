@@ -1,0 +1,88 @@
+.activity__main{
+    background:url('../img/green-blue-earth-on-blackboard-globe.jpg');
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.activity__form{
+    align-self :center;
+	margin: 80px;
+    background-color: $dark-grey;
+	border-radius: 20px;
+	display: flex;
+	flex-direction: column;
+    justify-content: space-between;
+    align-items:center;
+    text-decoration:none;
+    width: 70%;
+    height:80%;
+    color: white;
+}
+
+.activity_name{
+    display: flex;
+	flex-direction: row;
+	justify-content: center;
+    align-items:center;
+}
+
+.activity_diff{
+    display: flex;
+	flex-direction: row;
+	justify-content: center;
+    align-items:center;
+}
+
+.activity_duration{
+    display: flex;
+	flex-direction: row;
+	justify-content: center;
+    align-items:center;
+}
+
+.activity_season{
+    display: flex;
+	flex-direction: row;
+	justify-content: center;
+    align-items:center;
+}
+
+.activity_countries{
+    display: flex;
+	flex-direction: column;
+	justify-content: center;
+    align-items:center;
+}
+
+.countries_container{
+    display: flex;
+	flex-direction: row;
+    justify-content: center;
+    align-items:center;
+}
+
+.activity_countries__Card{
+    background-color: $dark-grey;
+    opacity: .9;
+	border-radius: 20px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin: 15px 10px;
+	width: 170px;
+	height: 170px;
+    text-decoration:none;
+}
+
+.activity_submit{
+    display: flex;
+	flex-direction: row;
+    justify-content: center;
+    align-items:center;
+}
+
